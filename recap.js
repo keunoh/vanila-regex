@@ -65,3 +65,23 @@ console.log(3, buggyMultiline); //fix 'ihe' but does not touch 'light'
 //4) Use \B to match characters inside borders of an entity.
 fixedMultiline = buggyMultiline.replace(/\Bo/gim, "e");
 console.log(4, fixedMultiline); //fix 'greon' but does not touch 'on'.
+
+let fruits = ["Apple", "Watermelon", "Orange", "Avocado", "Strawberry"];
+
+// Select fruits started with 'A' by /^A/ Regex.
+// Here '^' control symbol used only in one role: Matching begining of an input.
+
+let fruitsStartsWithA = fruits.filter((fruit) => /^A/.test(fruit));
+console.log(fruitsStartsWithA);
+
+// 이 예제에서 '^'는 두 가지 모두에 사용됩니다: 입력의 일치 시작점, 그룹에서 사용될 떄
+// 부정 또는 보완 문자 세트
+
+//Selecting fruits that dose not start by 'A' by a /^[^A]/ regex.
+//In this example, two meanings of '^' control symbol are represented:
+//1) Matching begining of the input
+//2) A negated or complemented character set: [^A]
+//That is, it matches anything that is not enclosed in the brackets.
+
+let fruitsStartsWithNotA = fruits.filter((fruit) => /^[^A]/.test(fruit));
+console.log(fruitsStartsWithNotA);
